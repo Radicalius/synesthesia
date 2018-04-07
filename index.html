@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+var colors = {"Rayna": {'a': '#F1B112', 'b': '#73FCDE', 'c': '#3F1602', 'd': '#DF594B', 'e': '#E88E93', 'f': '#F1F8D3', 'g': '#69E5B5', 'h': '#6DA0AE', 'i': '#BF448F', 'j': '#8CBB6C', 'k': '#D204EE', 'l': '#824DB5', 'm': '#5CEF96', 'n': '#A354CB', 'o': '#3FFCDB', 'p': '#F54962', 'q': '#68247C', 'r': '#CF337B', 's': '#5AE796', 't': '#73B745', 'u': '#4B9FA0', 'v': '#D4FA72', 'w': '#C7A8B2', 'x': '#AF8713', 'y': '#3A0F29', 'z': '#B3FEAB'},
+
+			"Annika": {'a': '#D70357', 'b': '#B81891', 'c': '#8D16A5', 'd': '#5B7C56', 'e': '#B0A2EF', 'f': '#86A35E', 'g': '#1905A5', 'h': '#5151EE', 'i': '#BD494E', 'j': '#F94E05', 'k': '#893784', 'l': '#B71AD6', 'm': '#34E0ED', 'n': '#47C10D', 'o': '#3014BC', 'p': '#BCF61E', 'q': '#37665C', 'r': '#A5DD33', 's': '#04BB45', 't': '#BAE691', 'u': '#BCCF7E', 'v': '#9E819B', 'w': '#CE1D05', 'x': '#8AC4ED', 'y': '#DD63AE', 'z': '#E57D74'},
+            
+            "Trinity": {'a': '#7DB489', 'b': '#ED115E', 'c': '#5D2567', 'd': '#B4AC92', 'e': '#570CE5', 'f': '#5D3A6B', 'g': '#ED7799', 'h': '#BA9438', 'i': '#E55040', 'j': '#419D77', 'k': '#09BEA0', 'l': '#804F81', 'm': '#677703', 'n': '#B1DBB5', 'o': '#2E81CA', 'p': '#3F2088', 'q': '#7B5426', 'r': '#8F83C8', 's': '#C9F23C', 't': '#40C3D5', 'u': '#A97413', 'v': '#28FC3B', 'w': '#A8EDBA', 'x': '#F525B0', 'y': '#6891D2', 'z': '#77631E'}};
+
+function onUpdate(){
+	var inp = document.getElementById("inp");
+    var res = document.getElementById("res");
+    var per = document.getElementById("per").value;
+    var val = "";
+    for (i = 0; i < inp.value.length; i++){
+    	if (inp.value[i] == " "){
+        	val += "<font color=#FFFFFF > &#9632;</font>";
+        } else if (inp.value[i] == "\n"){
+        	val += "<br/>";
+        }else{
+            val += "<font color="+colors[per][inp.value[i].toLowerCase()]+" > &#9632; </font>";
+        }
+    }
+    res.innerHTML = val;
+}
+
+function hideShow(){
+	document.getElementById("inp").display="none";
+}
+
+</script>
+<body onload=onUpdate(); >
+
+<textarea id=inp type=input onkeyup=javascript:onUpdate(); onkeydown=javascript:onUpdate();>The quick brown fox jumps over the lazy dog</textarea>
+<select id=per onChange=javascript:onUpdate(); >
+<option> Rayna </option>
+<option> Annika </option>
+<option> Trinity </option>
+</select>
+<p id=res></p>
+
+</body>
+</html>
